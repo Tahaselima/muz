@@ -1,5 +1,5 @@
 const meta = {
-  title: 'Headless WordPress with React',
+  title: 'Ev Dekorasyonu',
   wordpressBackend: process.env.WP_URL,
 }
 
