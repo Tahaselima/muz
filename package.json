@@ -1,5 +1,5 @@
 {
-  "name": "headless-wordpress-with-react",
+  "name": "headless-wordpress-with-next",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -18,8 +18,7 @@
     "postinstall": "lerna bootstrap"
   },
   "main": "index.js",
-  "repository": "git@github.com:iqubex-technologies/adify.git",
-  "author": "Kumar Abhirup",
+  "author": "Taha Selim",
   "license": "MIT",
   "devDependencies": {
     "lerna": "^3.16.4"

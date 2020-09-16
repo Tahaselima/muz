@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "headless-wordpress-with-react",
+  "name": "headless-wordpress-with-next",
   "public": true,
   "alias": [
     "hwwr"
