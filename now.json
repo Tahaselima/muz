@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "headless-wordpress-with-react",
+  "public": true,
+  "alias": [
+    "hwwr"
+  ],
+  "build": {
+    "env": {
+      "WP_URL": "https://dekorasyonu.net/"
+    }
+  },
+  "builds": [
+    {
+      "src": "packages/web/package.json",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*)",
+      "dest": "packages/web$1",
+      "continue": true
+    }
+  ]
+}
