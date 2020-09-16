@@ -8,3 +8,7 @@ module.exports = withSass({
   },
   cssModules: true,
 })
+
+module.exports = {
+  distDir: 'build',
+}

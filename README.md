@@ -16,8 +16,6 @@ $ yarn dev # run development server
 
 - Visit `http://localhost:3001/`
 
-### ⚒️ Linting
-
 #### In VSCode
 
 - Install ESLint and Prettier VSCode extensions.
@@ -31,5 +29,3 @@ $ yarn dev # run development server
 ## 🦄 Info
 
 - To customize the linter, use `.eslintrc.js` and `.prettierrc` file. [Learn more](https://eslint.org)
-
-## 📝 License
