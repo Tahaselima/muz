@@ -8,45 +8,74 @@ import Posts from '../src/components/Posts'
 import WithNavbar from '../src/components/WithNavbar'
 import wordpressDataAggregator from '../src/lib/dataAggregator'
 
-function PostsPage() {
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
 
-  useEffect(() => {
-    ;(async () => {
-      setError(null)
+import fetch from "node-fetch";
 
-      setLoading(true)
-
-      try {
-        // Make request for posts.
-        const postsData = await axios.get(
-          `${meta.wordpressBackend}/wp-json/wp/v2/posts?per_page=10`
-        )
-
-        const data = await Promise.all(
-          postsData.data.map(async post => wordpressDataAggregator(post))
-        )
-
-        setPosts(data)
-      } catch (err) {
-        setError(err)
-        // throw new Error('Throw some error')
-      }
-
-      setLoading(false)
-    })()
-  }, [])
-
-  return (
+const PostsPage = ({ posts }) => (
+  <>
     <WithNavbar>
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <Posts posts={posts} loading={loading} error={error} />
+      <Posts posts={posts} />
     </WithNavbar>
-  )
-}
+  </>
+);
 
-export default PostsPage
+export const getServerSideProps = async () => {
+  const res = await fetch(
+    "https://dekorasyonu.net/wp-json/wp/v2/posts"
+  );
+  const posts = await res.json();
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+
+export default PostsPage;
+
+
+// function PostsPage() {
+//   const [posts, setPosts] = useState([])
+//   const [loading, setLoading] = useState(true)
+//   const [error, setError] = useState(null)
+
+//   useEffect(() => {
+//     ;(async () => {
+//       setError(null)
+
+//       setLoading(true)
+
+//       try {
+//         // Make request for posts.
+//         const postsData = await axios.get(
+//           `${meta.wordpressBackend}/wp-json/wp/v2/posts?per_page=10`
+//         )
+
+//         const data = await Promise.all(
+//           postsData.data.map(async post => wordpressDataAggregator(post))
+//         )
+
+//         setPosts(data)
+//       } catch (err) {
+//         setError(err)
+//         // throw new Error('Throw some error')
+//       }
+
+//       setLoading(false)
+//     })()
+//   }, [])
+
+//   return (
+//     <WithNavbar>
+//       <Head>
+//         <title>{meta.title}</title>
+//       </Head>
+//       <Posts posts={posts} loading={loading} error={error} />
+//     </WithNavbar>
+//   )
+// }
+
+// export default PostsPage
