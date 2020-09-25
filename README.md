@@ -1,6 +1,6 @@
 # 🏄 headless-wordpress-with-next
 
-[wpsite](https://dekorasyonu.net) -- [headlessapp](https://muz-1lhw8qelw.vercel.app/)
+[wpsite](https://dekorasyonu.net) -- [headlessapp](https://muz-i9uinquki.vercel.app/)
 
 
 ### 🖥️ Development environment
